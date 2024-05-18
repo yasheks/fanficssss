@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Фанфики про Лунтика</title>
+</head>
+<body>
+
+<h3 style="text-align: center;">Изменение фанфика</h3>
+
+
+<form action="/category/{{ category_id }}/fanfic/{{ fanfic_id }}/edit" method="post">
+    <input name="fanfic_name" type="text" value="{{ categories['name'] }}"/>
+    <input name="fanfic_text" type="text" value="{{ categories['name'] }}"/>
+    <button>Сохранить</button>
+
+</form>
+
+
+</body>
+</html>
