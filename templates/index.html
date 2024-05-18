@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Фанфики про Лунтика</title>
+</head>
+<body>
+<h1>Фанфики по вселенной Лунтика</h1>
+
+<ul>
+    {% for category in categories %}
+        <li><a href="/category/{{ loop.index0 }}">{{ category['name'] }}</a> <a href="/category/{{ loop.index0 }}/edit">Изменить</a> <a href="/category/{{ loop.index0 }}/delete">Удалить</a></small><br></li>
+    {% endfor %}
+</ul>
+
+<form action="/category/add" method="post">
+    <input name="category_name" type="text" /><button>Добавить</button>
+
+</form>
+
+</body>
+</html>
