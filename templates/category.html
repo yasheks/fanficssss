@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{{ category['name'] }}</title>
+</head>
+<body>
+<h1>{{ category['name'] }}</h1>
+<ul>
+    {% for fanfic in category['fanfics'] %}
+    <li>
+        <p>{{ fanfic["faname"] }}</p>
+        <p>{{fanfic["text"]}}</p>
+    <li>{{ fanfic['likes'] }} <small><a
+            href="/category/{{ category_id }}/fanfic/{{ loop.index0 }}/like">лайк</a></small></li>
+    {% if fanfic['likes'] >= 100 %}
+    <p>кол-во лайков: {{ fanfic['likes'] }} <img src="/static/icons8-fire-48.png"/></p>
+    {% else %}
+    <p>кол-во лайков: {{ fanfic['likes'] }}</p>
+    {% endif %}
+    <a href="/category/{{ category_id }}/fanfic/{{ loop.index0 }}/edit">Изменить</a> <a
+        href="/category/{{ category_id }}/fanfic/{{ loop.index0 }}/delete">Удалить</a>
+    </li>
+    {% endfor %}
+
+    <form action="/category/{{ category_id }}/fanfic/add" method="post">
+        <input name="fanfic_name" type="text"/><button>Добавить</button>
+        <textarea name="fanfic_text" placeholder="Ваш фанфик"></textarea>
+
+
+    </form>
+</ul>
+</body>
+</html>
